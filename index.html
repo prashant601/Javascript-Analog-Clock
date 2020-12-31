@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Analog clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+    <div class="clock">
+        <div class="hour">
+            <div id="hr" class="hr"></div>
+        </div>
+        <div class="min">
+            <div id="mn" class="mn"></div>
+        </div>
+        <div class="sec">
+            <div id="sc" class="sc"></div>
+        </div>
+    </div>
+    <div class="content">
+        <p> &nbsp; Javascript Analog Clock &nbsp;</p>
+    </div>
+</div>
+
+    <script>
+        const deg = 6;
+        const hr= document.querySelector('#hr')
+        const mn= document.querySelector('#mn')
+        const sc= document.querySelector('#sc')
+
+        setInterval(() => {
+
+        let day= new Date();
+        let hh = day.getHours()*30;
+        let mm = day.getMinutes()*deg;
+        let ss = day.getSeconds()*deg;
+
+        hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+        mn.style.transform = `rotateZ(${mm}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
+
+        });
+        
+    </script>
+</body>
+</html>
